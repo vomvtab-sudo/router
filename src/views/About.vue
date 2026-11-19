@@ -1,12 +1,18 @@
 <script setup>
-// Страница «О сайте» — маршрут '/about'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+function goBack() {
+  router.back()
+}
 </script>
 
 <template>
   <section class="page">
     <h2>О сайте</h2>
     <p>Учебное приложение для изучения Vue Router.</p>
-    <p class="hint">Блок «Роутинг»: страницы в src/views/, маршруты в src/router/.</p>
+    <button class="btn" @click="goBack">Назад</button>
   </section>
 </template>
 
@@ -25,13 +31,23 @@ h2 {
 }
 
 p {
-  margin: 0 0 8px;
+  margin: 0 0 16px;
   line-height: 1.6;
   color: #4a5b68;
 }
 
-.hint {
-  font-size: 14px;
-  color: #7b8a95;
+.btn {
+  padding: 10px 20px;
+  background: #42b883;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn:hover {
+  background: #35495e;
 }
 </style>
